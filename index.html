@@ -2,117 +2,216 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Chuong Nguyen - Resume</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function showTab(id) {
+      const sections = document.querySelectorAll("section");
+      sections.forEach((s) => {
+        s.classList.remove("active");
+        s.classList.add("fade-out");
+        setTimeout(() => {
+          s.style.display = "none";
+          s.classList.remove("fade-out");
+        }, 300);
+      });
+      const activeSection = document.getElementById(id);
+      setTimeout(() => {
+        activeSection.style.display = "block";
+        activeSection.classList.add("active");
+      }, 300);
+
+      const buttons = document.querySelectorAll("nav button");
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      document.getElementById(id + "-btn").classList.add("active");
+    }
+
+    window.onload = () => showTab("about");
+  </script>
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-text">
-      <h1>Chuong Toan My Nguyen</h1>
-      <p>Entry-Level Remote IT Assistant | Data Entry | Admin Support</p>
-      <div class="contact-icons">
-        <a href="mailto:chuongnguyen.network@gmail.com">📧 EMAIL</a>
-        <a href="https://www.linkedin.com/in/chuong-nguyen-mkt/" target="_blank">🔗 LINKEDIN</a>
-      </div>
-    </div>
+  <header>
+    <h1>Chuong Toan My Nguyen</h1>
+    <p>
+      <a href="https://www.linkedin.com/in/chuong-nguyen-mkt/" target="_blank" rel="noopener noreferrer" class="link-inline">
+        <img src="linkedin-logo.svg" alt="LinkedIn" class="linkedin-logo" /> LinkedIn
+      </a>
+      |
+      <a href="mailto:chuongnguyen.network@gmail.com" class="link-inline">Email</a>
+    </p>
   </header>
 
   <nav>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <button id="about-btn" onclick="showTab('about')">About</button>
+    <button id="education-btn" onclick="showTab('education')">Education</button>
+    <button id="experience-btn" onclick="showTab('experience')">Work Experience</button>
+    <button id="skills-btn" onclick="showTab('skills')">Skills</button>
+    <button id="contact-btn" onclick="showTab('contact')">Contact</button>
   </nav>
 
   <main>
-    <section id="about" class="card">
+    <section id="about">
       <h2>About Me</h2>
       <p>
-        Recent IT graduate with foundational knowledge in Information Technology, Web Development, and Social Marketing.
-        A quick learner with strong communication skills and a desire to continuously improve. 
-        Motivated to contribute effectively to fully remote teams while developing technical and soft skills.
+        Recent IT graduate with foundational knowledge in Information Technology, Web Development,
+        and Social Marketing. A quick learner with good communication skills and a strong willingness
+        to continuously improve in related fields. Motivated to contribute effectively and adapt to new roles
+        while developing both technical and soft skills relevant to the job.
+      </p>
+      <p>
+        <strong>Objective:</strong> To obtain an entry-level position where I can apply my skills, continue developing new abilities,
+        and contribute to the team with responsibility and attention to detail. I am specifically seeking fully
+        remote opportunities to maximize my productivity and flexibility.
       </p>
     </section>
 
-    <section id="education" class="card">
+    <section id="education" style="display:none">
       <h2>Education</h2>
-      <ul>
-        <li><strong>Southern New Hampshire University</strong> — BS in Computer Science (In Progress)</li>
-        <li><strong>Guilford Technical Community College</strong> — AAS in Information Technology (2024)</li>
-        <li>Certificate in Web Development (2024)</li>
-        <li>Certificate in Social Marketing (2024)</li>
-        <li>Certificate in Computer Technology Integration (2023)</li>
-        <li>Google Advanced Analytics Certification (2023)</li>
-      </ul>
+      <div class="edu-item">
+        <h3>Southern New Hampshire University</h3>
+        <p><em>Bachelor of Science (BS) — Computer Science</em></p>
+        <p>(Manchester, NH)</p>
+      </div>
+      <div class="edu-item">
+        <h3>Guilford Technical Community College</h3>
+        <p><em>Associate of Applied Science (AAS) in Information Technology — General Studies Track</em></p>
+        <p>Graduated: 2024 (Jamestown, NC)</p>
+        <ul>
+          <li>Certificate in Information Technology — Computer Technology Integration, 2023</li>
+          <li>Google Advanced Analytics Certification, 2023</li>
+          <li>Certificate in Web Development, 2024</li>
+          <li>Certificate in Social Marketing, 2024</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="experience" class="card">
+    <section id="experience" style="display:none">
       <h2>Work Experience</h2>
 
-      <h3>Walmart, NC – Digital Personal Shopper (2022–Present)</h3>
-      <ul>
-        <li>Prepared and packaged customer orders with accuracy and care.</li>
-        <li>Substituted products as needed and ensured customer satisfaction.</li>
-      </ul>
+      <div class="job-item">
+        <h3>Walmart, NC</h3>
+        <p class="company-location">(North Carolina, USA)</p>
+        <p><strong>Digital Personal Shopper</strong></p>
+        <p><em>March 2022 – Present</em></p>
+        <ul>
+          <li>Fulfill customer orders by reviewing orders; locating, preparing, and packaging merchandise.</li>
+          <li>Ensuring the accuracy of orders prior to pick up.</li>
+          <li>Making appropriate product substitutions as needed to ensure satisfaction.</li>
+        </ul>
+      </div>
 
-      <h3>Food Lion, NC – Cashier (2021–2022)</h3>
-      <h3>Vietnamese Bread Store, CA – Cashier (2019–2020)</h3>
-      <h3>Red Flame Restaurant, CA – Waitress (2019)</h3>
+      <div class="job-item">
+        <h3>Food Lion, NC</h3>
+        <p class="company-location">(North Carolina, USA)</p>
+        <p><strong>Cashier</strong></p>
+        <p><em>June 2021 – January 2022</em></p>
+      </div>
 
-      <h3>Samsung Electronics, Vietnam – Customer Representative (2018–2019)</h3>
-      <ul>
-        <li>Resolved technical issues and delivered excellent customer support.</li>
-      </ul>
+      <div class="job-item">
+        <h3>Vietnamese Bread Store, Westminster, CA</h3>
+        <p class="company-location">(Westminster, California, USA)</p>
+        <p><strong>Cashier</strong></p>
+        <p><em>November 2019 – March 2020</em></p>
+      </div>
 
-      <h3>Australian Wines Co., Vietnam – Office Administrator (2017–2018)</h3>
-      <ul>
-        <li>Performed data entry, event coordination, and scheduling tasks.</li>
-      </ul>
+      <div class="job-item">
+        <h3>Red Flame Restaurant, Westminster, CA</h3>
+        <p class="company-location">(Westminster, California, USA)</p>
+        <p><strong>Waitress</strong></p>
+        <p><em>September 2019 – November 2019</em></p>
+      </div>
 
-      <h3>Columbia Asia Clinic, Vietnam – Front Officer / Medical Records (2016–2017)</h3>
-      <ul>
-        <li>Assisted with patient care, documentation, and health check-up coordination.</li>
-      </ul>
+      <div class="job-item">
+        <h3>Samsung Electronics, Ho Chi Minh City, Vietnam</h3>
+        <p class="company-location">(Ho Chi Minh City, Vietnam)</p>
+        <p><strong>Customer Representative</strong></p>
+        <p><em>September 2018 – 2019</em></p>
+        <ul>
+          <li>Checked sales bills to ensure information was accurate and consistent.</li>
+          <li>Identified and reported any discrepancies or errors in billing.</li>
+          <li>Delivered exceptional customer service to ensure satisfaction.</li>
+          <li>Collaborated with cross-functional teams to address customer concerns effectively.</li>
+        </ul>
+      </div>
 
-      <h3>McDonald’s Vietnam – LSM Leader / Trainer (2013–2016)</h3>
-      <ul>
-        <li>Trained new staff, supported operations, and organized marketing events.</li>
-      </ul>
+      <div class="job-item">
+        <h3>Australian Wines Co., Ho Chi Minh City, Vietnam</h3>
+        <p class="company-location">(Ho Chi Minh City, Vietnam)</p>
+        <p><strong>Office Administrator</strong></p>
+        <p><em>November 2017 – August 2018</em></p>
+        <ul>
+          <li>Handled administrative tasks including data entry, document preparation, and filing.</li>
+          <li>Assisted in organizing events, scheduling appointments, and coordinating meetings.</li>
+          <li>Supported office operations and provided general assistance to the team.</li>
+        </ul>
+      </div>
+
+      <div class="job-item">
+        <h3>Columbia Asia Clinic, Ho Chi Minh City, Vietnam</h3>
+        <p class="company-location">(Ho Chi Minh City, Vietnam)</p>
+        <p><strong>Front Officer / Coordinator / Medical Records Staff</strong></p>
+        <p><em>September 2016 – November 2017</em></p>
+        <ul>
+          <li>Provided customer care and service information to patients, families, and corporate clients.</li>
+          <li>Coordinated corporate health check-ups; supported doctors and nurses during on-site events.</li>
+          <li>Prepared client profiles and followed up on results for corporate and work permit cases.</li>
+        </ul>
+      </div>
+
+      <div class="job-item">
+        <h3>McDonald’s Vietnam, Ho Chi Minh City, Vietnam</h3>
+        <p class="company-location">(Ho Chi Minh City, Vietnam)</p>
+        <p><strong>Local Store Marketing (LSM) Leader / Team Trainer</strong></p>
+        <p><em>December 2013 – September 2016</em></p>
+        <ul>
+          <li>Assisted restaurant manager with operations and team coordination.</li>
+          <li>Trained staff, managed schedules, and supported sales goals.</li>
+          <li>Prepared reports, handled customer service, and organized events and promotions.</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="skills" class="card">
+    <section id="skills" style="display:none">
       <h2>Skills</h2>
       <ul>
-        <li>Basic Python, Java, HTML</li>
-        <li>Microsoft Word, PowerPoint; basic Excel, Outlook, Access</li>
-        <li>Problem-solving, time management, team coordination</li>
-        <li>Detail-oriented, well-organized, self-motivated</li>
-        <li>Bilingual: Vietnamese (native), English (intermediate)</li>
+        <li>Basic knowledge of Python, Java, and HTML.</li>
+        <li>Detail-oriented, well-organized, and efficient in managing tasks.</li>
+        <li>Exposure to IT fundamentals; motivated to continue learning and growing in tech-related roles.</li>
+        <li>Proficient in Microsoft Word and PowerPoint; basic skills in Excel, Outlook, and Access.</li>
+        <li>Strong problem-solving skills; able to work independently and collaboratively.</li>
       </ul>
     </section>
 
-    <section id="contact">
-		<h1>Contact Me</h1>
-		<form action="https://formsubmit.co/chuongnguyen.network@gmail.com" method="POST">
-			<input type="hidden" name="_captcha" value="false">
-			<label>Name</label>
-			<input type="text" name="name" required>
+    <section id="contact" style="display:none">
+      <h2>Contact Me</h2>
+      <form action="https://formsubmit.co/chuongnguyen.network@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
 
-			<label>Email</label>
-			<input type="email" name="email" required>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
 
-			<label>Message</label>
-			<textarea name="message" rows="5" required></textarea>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
 
-			<button type="submit">Send</button>
-		</form>
-	</section>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+
+      <p style="margin-top: 20px;">
+        Or contact me directly:<br />
+        <a href="mailto:chuongnguyen.network@gmail.com" class="link-inline contact-email">chuongnguyen.network@gmail.com</a><br />
+        <a href="https://www.linkedin.com/in/chuong-nguyen-mkt/" target="_blank" rel="noopener noreferrer" class="link-inline contact-linkedin" style="margin-top: 8px; display: inline-flex; align-items: center;">
+          <img src="linkedin-logo.svg" alt="LinkedIn" class="linkedin-logo" /> LinkedIn Profile
+        </a>
+      </p>
+
+      <p>
+        <a href="Chuong_Nguyen_Resume.pdf" download class="btn-download">Download CV PDF</a>
+      </p>
+    </section>
   </main>
 
   <footer>
