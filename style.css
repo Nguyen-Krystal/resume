@@ -1,119 +1,244 @@
-
+/* General styles */
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  background-color: #fdf7f2;
+  background-color: #fff7f2;
   color: #333;
   line-height: 1.6;
 }
 
-.hero {
-  background: linear-gradient(to right, #b56a6a, #d9a89d);
+/* Header */
+header {
+  background-color: #8B0000; /* đỏ đậm */
   color: white;
-  padding: 60px 20px;
+  padding: 30px 20px;
   text-align: center;
 }
 
-.contact-icons a {
-  margin: 0 10px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+header h1 {
+  margin-bottom: 10px;
+  font-size: 32px;
 }
 
-.contact-icons a:hover {
+header p a {
+  color: #ffe4e1;
+  margin: 0 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+header p a:hover {
   text-decoration: underline;
 }
 
+/* LinkedIn logo */
+.linkedin-logo {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Link inline */
+.link-inline {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Navigation */
 nav {
-  background-color: #8c5f57;
-  padding: 0.8em;
-}
-
-nav ul {
-  list-style: none;
   display: flex;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
   flex-wrap: wrap;
+  justify-content: center;
+  background-color: #6E3B1F; /* nâu ấm */
+  border-bottom: 1px solid #ddd;
 }
 
-nav li {
-  margin: 10px 15px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
+nav button {
+  background: none;
+  border: none;
+  padding: 15px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #FF6F3C; /* cam cháy */
   font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-nav a:hover {
-  border-bottom: 2px solid #f5e3d3;
+nav button:hover,
+nav button.active {
+  background-color: #FF6F3C;
+  color: white;
+  border-radius: 5px 5px 0 0;
 }
 
-main {
+/* Sections */
+section {
+  display: none;
+  padding: 30px 40px;
   max-width: 900px;
-  margin: auto;
-  padding: 20px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(110, 59, 31, 0.15);
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
 }
 
-.card {
-  background-color: #fffaf7;
-  border: 1px solid #f2ddd7;
-  border-left: 5px solid #d98c8c;
-  padding: 25px;
-  margin: 20px 0;
-  border-radius: 10px;
+section.active {
+  display: block;
+  animation-name: fadeIn;
 }
 
+.fade-out {
+  animation-name: fadeOut;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
+
+/* Headings */
 h2 {
-  color: #8c3b3b;
+  color: #8B0000;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #FF6F3C;
+  padding-bottom: 8px;
 }
 
-h3 {
-  margin-top: 20px;
-  color: #9e5d5d;
+/* Education & Jobs */
+.edu-item, .job-item {
+  margin-bottom: 30px;
 }
 
-ul {
+.edu-item h3, .job-item h3 {
+  margin-bottom: 5px;
+  color: #6E3B1F;
+}
+
+.company-location {
+  font-style: italic;
+  color: #666666;
+  font-size: 0.9em;
+  margin-top: -8px;
+  margin-bottom: 10px;
+}
+
+.job-item p strong {
+  font-weight: 600;
+  color: #8B0000;
+}
+
+.job-item p em {
+  color: #D35400;
+}
+
+.job-item ul {
+  margin-top: 10px;
   padding-left: 20px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
-  margin: auto;
+.job-item ul li {
+  margin-bottom: 8px;
 }
 
-input, textarea {
-  padding: 12px;
-  border: 1px solid #CCC;
+/* Skills */
+section#skills ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Contact form styles */
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
   border-radius: 5px;
+  font-family: inherit;
   font-size: 1em;
+  resize: vertical;
 }
 
-button {
-  background-color: #b56a6a;
-  color: white;
-  padding: 12px;
+form button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  background-color: #D35400; /* cam cháy */
   border: none;
+  color: white;
   border-radius: 5px;
-  font-size: 1em;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  font-size: 1em;
+  transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #8c3b3b;
+form button:hover {
+  background-color: #8B0000; /* đỏ đậm */
 }
 
+/* Contact */
+.contact-email,
+.contact-linkedin {
+  font-size: 1.1em;
+  color: #8B0000;
+  text-decoration: none;
+}
+
+.contact-email:hover,
+.contact-linkedin:hover {
+  text-decoration: underline;
+}
+
+/* Download CV Button */
+.btn-download {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #D35400; /* cam cháy */
+  color: white;
+  padding: 12px 28px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-download:hover {
+  background-color: #8B0000; /* đỏ đậm */
+  cursor: pointer;
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #f8e5df;
+  background-color: #6E3B1F;
+  color: white;
+  margin-top: 60px;
   font-size: 0.9em;
 }
